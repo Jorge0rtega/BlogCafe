@@ -77,10 +77,16 @@ img{
 .centrar-texto{
     text-align: center;
 }
-
+/* esta clase la agrega mordenizr sino existe agrega no-webp */
+.webp .header{
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header{
+    background-image: url(../img/banner.jpg);
+}
 /* header */
 .header{
-    background-image: url(../img/banner.jpg);
+   
     height: 60rem;
     background-size: cover;/* ocupe el espacio, adapta la imagen a diferentes tamaños*/
     background-repeat: no-repeat;/* la imagen no en mosaico  */
@@ -168,7 +174,7 @@ img{
     text-transform:uppercase;
     font-weight:700;
     margin-bottom:2rem;
-
+    border:none;
 }
 @media ( min-width: 768px ){
     .boton{
@@ -178,11 +184,15 @@ img{
 
     }
 }
+
+.boton:hover{
+    cursor: pointer;
+}
 .boton--primario{
     background-color: var(--negro);
 
 }
-.boton{
+.boton--secundario{
     background-color: var(--primario)
 }
 
@@ -239,3 +249,70 @@ img{
     } */
 }
 
+
+/* cursos */
+.curso{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+@media ( min-width: 768px ){
+    .curso{
+        display:grid;
+        grid-template-columns:1fr 2fr;
+        column-gap:2rem;
+    }
+}
+.curso:last-of-type{
+    border: none;
+    
+}
+
+.curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.curso__info{
+    font-weight: 400;
+}
+
+.curso__info,
+.curso__label{
+    font-size: 2rem;
+}
+
+/* contacto */
+.contacto-bg{
+    background-image: url(../img/contacto.jpg);
+    height:40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario{
+    background-color: var(--blanco);
+    margin:-5rem auto 0 auto; /* negativo para encimar el contenido */
+    width: 95%;
+    padding: 5rem;
+}
+.campo{
+    display: flex;/* para usar las propiedades del flexbox */
+    margin-bottom: 2rem;
+    
+
+}
+.campo__label{
+    flex: 0 0 9rem; /* deja el tamaño fijo del label */
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.campo__field{
+    flex: 1;
+    border:1px solid var(--gris);
+    
+}
+
+.campo__field--textarea{
+    height:20rem;
+}

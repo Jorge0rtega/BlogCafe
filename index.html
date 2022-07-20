@@ -6,12 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogDeCafé</title>
+
+    <!-- prefetch -->
+    <!-- lo que vaya cargando (lo que el usuario puede que visite) -->
+    <link rel="prefetch" href="nosotros.html" as="document">
+    <!-- googel analytics dice que pagina se visita en seguida -->
+
+
+    <!-- preload -->
+    <!-- lo que requeramos inmediatamente -->
+    <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" 
+    crossorigin="crossorigin" as="font">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
         rel="stylesheet">
+
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preload" href="img/blog1.jpg" as="image">
 </head>
 
 <body>
@@ -39,7 +54,10 @@
             <h3>Nuestro Blog</h3>
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog1.jpg" alt="imagen blog">
+                    <picture><!-- cargara las imagenes como se presentan, si uno no es soportado se pasa al siguiente -->
+                        <source loading="lazy" srcset="img/blog1.webp" type="image/webp"> <!-- soporte de mas formatos incluido webp = menor tamaño -->
+                        <img loading="lazy" src="img/blog1.jpg" alt="imagen blog"> <!-- lazy descarga la imagen como se requiera, ahorro de descarga -->
+                    </picture>
                 </div>
                 <div class="imagen__contenido">
                     <h4 class="no-margin">Tipos de Grano de Café</h4>
@@ -51,7 +69,10 @@
             </article>
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog2.jpg" alt="imagen blog">
+                    <picture><!-- cargara las imagenes como se presentan, si uno no es soportado se pasa al siguiente -->
+                        <source loading="lazy" srcset="img/blog2.webp" type="image/webp"> <!-- soporte de mas formatos incluido webp -->
+                        <img loading="lazy" src="img/blog2.jpg" alt="imagen blog"> <!-- lazy descarga la imagen como se requiera, ahorro de descarga -->
+                    </picture>
                 </div>
                 <div class="imagen__contenido">
                     <h4 class="no-margin">Tres Deliciosas Recetas de café</h4>
@@ -63,7 +84,10 @@
             </article>
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog3.jpg" alt="imagen blog">
+                    <picture><!-- cargara las imagenes como se presentan, si uno no es soportado se pasa al siguiente -->
+                        <source loading="lazy" srcset="img/blog3.webp" type="image/webp"> <!-- soporte de mas formatos incluido webp -->
+                        <img loading="lazy" src="img/blog3.jpg" alt="imagen blog"> <!-- lazy descarga la imagen como se requiera, ahorro de descarga -->
+                    </picture>
                 </div>
                 <div class="imagen__contenido">
                     <h4 class="no-margin">Beneficios del Café</h4>
@@ -114,7 +138,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="js/modernzr.js"></script>
 </body>
 
 </html>
